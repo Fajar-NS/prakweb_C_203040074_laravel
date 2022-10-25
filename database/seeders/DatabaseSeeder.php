@@ -16,13 +16,14 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // \App\Models\User::factory(10)->create();
-        User::create([
-            'name'=> 'Fajar NS',
-            'email'=>'FajarNS@example.com',
-            'password'=> bcrypt('FajarNS')
-        ]);
-
+        // User::create([
+            //     'name'=> 'Fajar NS',
+            //     'email'=>'FajarNS@example.com',
+            //     'password'=> bcrypt('FajarNS')
+            // ]);
+            
+        User::factory(10)->create();
+        
         Category::create([
             'name' => 'Web Programming',
             'slug' => 'Web-Programming'
@@ -33,31 +34,33 @@ class DatabaseSeeder extends Seeder
             'slug' => 'personal'
         ]);
         
-        Post::create([
-            'title' => 'Judul Pertama',
-            'category_id'=> 1,
-            'user_id' =>1,
-            'slug' => 'judul-pertama',
-            'excerpt' => 'wiwidiwdiwdiwidi',
-            'body' =>'dwijdaiwdjiad<i>dwdwadad</i>'
-        ]);
+        Post::factory(5)->create();
 
-        Post::create([
-            'title' => 'Judul keDua',
-            'category_id'=> 1,
-            'user_id' =>1,
-            'slug' => 'judul-kedua',
-            'excerpt' => 'wiwidiwdwwiwdiwidi',
-            'body' =>'dwijdaiwdjiad<i>ddawdwadad</i>'
-        ]);
+        // Post::create([
+        //     'title' => 'Judul Pertama',
+        //     'category_id'=> 1,
+        //     'user_id' =>1,
+        //     'slug' => 'judul-pertama',
+        //     'excerpt' => 'wiwidiwdiwdiwidi',
+        //     'body' =>'dwijdaiwdjiad<i>dwdwadad</i>'
+        // ]);
 
-        Post::create([
-            'title' => 'Judul keTiga',
-            'category_id'=> 1,
-            'user_id' =>1,
-            'slug' => 'judul-ketiga',
-            'excerpt' => 'wiwidiwdwwiwdiwidi',
-            'body' =>'dwijdaiwdjiad<i>ddawdwadad</i>'
-        ]);
+        // Post::create([
+        //     'title' => 'Judul keDua',
+        //     'category_id'=> 1,
+        //     'user_id' =>1,
+        //     'slug' => 'judul-kedua',
+        //     'excerpt' => 'wiwidiwdwwiwdiwidi',
+        //     'body' =>'dwijdaiwdjiad<i>ddawdwadad</i>'
+        // ]);
+
+        // Post::create([
+        //     'title' => 'Judul keTiga',
+        //     'category_id'=> 1,
+        //     'user_id' =>1,
+        //     'slug' => 'judul-ketiga',
+        //     'excerpt' => 'wiwidiwdwwiwdiwidi',
+        //     'body' =>'dwijdaiwdjiad<i>ddawdwadad</i>'
+        // ]);
     }
 }
