@@ -27,6 +27,7 @@ Route::get('/', function () {
 Route::get('/about', function () {
     return view('about',[
         "title" =>"About",
+        'active' => 'about',
         "name" => "Fajar NS",
         "kelas"=> "IF B",
         "image" => "Fajar.png"
@@ -42,21 +43,5 @@ Route::get('/categories', function(){
         'title' => 'Post categories',
         'active' => 'categories',
         'categories' => Category::all()
-    ]);
-});
-
-Route::get('/categories/{category:slug}', function(Category $category){
-    return view('posts', [
-        'title' =>"Post by Category  : $category->name",
-        'active' => 'categories',
-        'posts' => $category->posts->load('category','author')
-    ]);
-});
-    
-Route::get('/authors/{author:username}', function(User $author)
-{
-    return view('posts', [
-        'title' => "Pots By Author : $author->name",
-        'posts' => $author->posts->load('category','author')
     ]);
 });
