@@ -46,6 +46,16 @@ Route::get('/categories', function(){
     ]);
 });
 
-Route::get('/login', [LoginController::class , 'index']);
-Route::get('/register', [RegisterController::class , 'index']);
+//login
+Route::get('/login', [LoginController::class , 'index'])->name('login')->middleware('guest');
+Route::post('/login', [LoginController::class , 'authenticate']);
+
+//logout
+Route::post('/logout', [LoginController::class , 'logout']);
+
+//register
+Route::get('/register', [RegisterController::class , 'index'])->middleware('guest');
 Route::post('/register', [RegisterController::class , 'store']);
+
+//dashboard
+Route::get('/dashboard', [DashboardController::class, 'index'])->middleware('auth');
