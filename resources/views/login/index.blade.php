@@ -1,6 +1,13 @@
 @extends('layouts.main')
 
 @section('container')
+    {{-- notif --}}
+    @if (session()->has('success'))     
+    <div class="alert alert-success alert-dismissible fade show col-md-4 text-center form-signin w-100 m-auto" role="alert">
+        {{ session('success') }}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    @endif
 
     <main class="form-signin w-100 m-auto">
         <form>
