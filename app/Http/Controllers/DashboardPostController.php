@@ -99,19 +99,18 @@ class DashboardPostController extends Controller
             'body' => 'required'
         ];
 
-        if($request->slug != $post->slug) {
+        if($request->slug != $post->slug){
             $rules['slug'] = 'required|unique:posts';
         }
 
         $validatedData = $request->validate($rules);
 
         $validatedData['user_id'] = auth()->user()->id;
-        $validatedData['excerpt'] = Str::limit(strip_tags($request->body), 200);
+        $validatedData['excerpt'] = Str::limit(strip_tags($request->body),200);
 
-        Post::where('id', $post->id)
-            ->update($validatedData);
+        Post::where('id', $post->id)->update($validatedData);
 
-        return redirect('/dashboard/posts')->with('success', 'Post has been update!');
+        return redirect('/dashboard/posts')->with('success', 'Post has been Updated!');
     }
 
     /**
