@@ -30,8 +30,12 @@
           <td>{{ $post->category->name }}</td>
           <td>
            <a href="/dashboard/posts/{{ $post->slug }}" class="badge bg-info"><span data-feather="eye" class="align-text-bottom"></a></span>
-           <a href="" class="badge bg-warning"><span data-feather="edit" class="align-text-bottom"></a></span>
-           <a href="" class="badge bg-danger"><span data-feather="x-circle" class="align-text-bottom"></a></span>
+           <a href="/dashboard/posts/{{ $post->slug }}/edit" class="badge bg-warning"><span data-feather="edit"></span></a>
+            <form action="/dashboard/posts/{{ $post->slug }}" method="post" class="d-inline">
+             @method('delete')
+             @csrf
+             <button class="badge bg-danger border-0" onclick="return confirm('Are you sure?')"><span data-feather="x-circle"></span></button>
+            </form>
           </td>
         </tr>
 
