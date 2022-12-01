@@ -6,7 +6,7 @@
 </div>
 
 <div class="col-lg-8">
-    <form method="post" action="/dashboard/posts{{ $post->slug }}" class="mb-5" enctype="multipart/form-data">
+    <form method="post" action="/dashboard/posts/{{ $post->slug }}" class="mb-5" enctype="multipart/form-data">
       @method('put')  
       @csrf
         <div class="mb-3">
